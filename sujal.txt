@@ -2,3 +2,7 @@ hello
 hiii 
 add the new content from direct github
 hiiii now do with git pull
+
+
+
+this is new content i add to this file for push again 
