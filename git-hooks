@@ -1,0 +1,141 @@
+GIT PRACTICAL: HOOKS + BASIC COMMANDS
+
+---
+
+## PART 1: BASIC GIT OPERATIONS
+
+## Step 1: Initialize Git Repository
+
+cd Desktop/git
+git init
+
+## Step 2: Create a File
+
+echo Hello Git > app.txt
+
+## Step 3: Check Repository Status
+
+git status
+
+## Step 4: Stage File
+
+git add app.txt
+
+## Step 5: Commit Changes
+
+git commit -m "First commit"
+
+## Step 6: Modify File
+
+echo Updated content >> app.txt
+
+## Step 7: View Difference
+
+git diff
+
+## Step 8: Commit Updated Changes
+
+git add app.txt
+git commit -m "Updated file"
+
+---
+
+## PART 2: GIT HOOKS FOR AUTOMATION
+
+Git hooks are scripts that run automatically during Git events.
+They are stored in:
+.git/hooks/
+
+---
+
+## Step 1: Navigate to hooks folder
+
+cd .git/hooks
+
+---
+
+## Step 2: Create pre-commit hook (Lint Check)
+
+Create a file named: pre-commit
+
+Add the following code:
+
+#!/bin/sh
+echo "Running pre-commit lint check..."
+
+# Check if app.txt is empty
+
+if [ ! -s app.txt ]; then
+echo "Error: app.txt is empty!"
+exit 1
+fi
+
+echo "Lint check passed!"
+
+---
+
+## Step 3: Make hook executable
+
+chmod +x pre-commit
+
+---
+
+## Step 4: Create pre-push hook (Test Check)
+
+Create a file named: pre-push
+
+Add the following code:
+
+#!/bin/sh
+echo "Running tests before push..."
+
+# Example test
+
+echo "All tests passed!"
+
+---
+
+## Step 5: Make hook executable
+
+chmod +x pre-push
+
+---
+
+## Step 6: Create post-merge hook
+
+Create a file named: post-merge
+
+Add the following code:
+
+#!/bin/sh
+echo "Post-merge action executed!"
+echo "You may install dependencies here."
+
+---
+
+## Step 7: Make hook executable
+
+chmod +x post-merge
+
+---
+
+## WORKING
+
+* pre-commit: Runs before every commit
+* pre-push: Runs before pushing code
+* post-merge: Runs after merging branches
+
+---
+
+## OUTCOME
+
+* Learned basic Git commands
+* Understood file tracking and versioning
+* Implemented Git hooks for automation
+* Automated lint checks before commit
+* Automated tests before push
+* Executed actions after merge
+
+---
+
+## END OF PRACTICAL
